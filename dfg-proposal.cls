@@ -15,8 +15,6 @@
 \setsansfont{arial}
 \renewcommand{\familydefault}{\sfdefault}
 
-\RequirePackage{amsmath}
-\RequirePackage{unicode-math}
 \RequirePackage{xcolor}
 \RequirePackage{fontsize}
 
@@ -87,17 +85,6 @@
 }}{\and{\\}}{}{\ddt}
 
 \makeatother
-
-\RequirePackage{booktabs}
-
-\renewenvironment{abstract}{\noindent\begin{addmargin}{2em}
-\itshape}{
-\end{addmargin}\vspace{1em}}
-\newenvironment{keywords}{\noindent\begin{minipage}{\linewidth}
-\begin{center}
-\textbf{KEYWORDS}\\}{
-\end{center}
-\end{minipage}}
 
 \setkomafont{section}{\normalsize\bfseries}
 \setkomafont{subsection}{\normalsize\bfseries}
