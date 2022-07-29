@@ -7,7 +7,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
-\LoadClass[a4paper, captions=tableheading, usegeometry, parskip=half]{scrartcl}
+\LoadClass[a4paper, captions=tableheading, parskip=half, usegeometry]{scrartcl}
 
 \RequirePackage[left=2.5cm, right=2cm, bottom=1.5cm, top=2.5cm]{geometry}
 
@@ -110,8 +110,15 @@
 \ohead*{Seite \pagemark{} von max. 17}
 \cfoot*{}
 
-\newcommand{\parttwo}{%
+\newcommand{\partbreak}{%
 \newpage
 \ohead*{Seite \pagemark{} von max. 8}
 \cfoot*{}
 }
+
+\setcounter{secnumdepth}{4}
+
+\RedeclareSectionCommand[
+  beforeskip=-3.25ex plus -1ex minus -.2ex,
+  afterskip=1.5ex plus .2ex,
+]{paragraph}
