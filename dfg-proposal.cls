@@ -16,7 +16,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \RequirePackage{xcolor}
-\RequirePackage{fontsize}
+\RequirePackage[parindent=0em]{fontsize}
 
 \definecolor{dfgblue}{HTML}{00529E}
 
@@ -101,7 +101,6 @@
 \newpage
 \setcounter{page}{1}
 \ohead*{Seite \pagemark{} von max. 8}
-\cfoot*{}
 }
 
 \setcounter{secnumdepth}{4}
