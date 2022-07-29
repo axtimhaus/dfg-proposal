@@ -112,6 +112,7 @@
 
 \newcommand{\partbreak}{%
 \newpage
+\setcounter{page}{1}
 \ohead*{Seite \pagemark{} von max. 8}
 \cfoot*{}
 }
