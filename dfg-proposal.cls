@@ -3,22 +3,44 @@
 %! Date = 28.07.22
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dfg-proposal}[A class for writing project porposals to the DFG]
+\ProvidesClass{dfg-proposal}[2025-07-21 A class for writing project porposals to the DFG]
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
-\ProcessOptions\relax
+\DeclareKeys{}
+\DeclareUnknownKeyHandler{%
+    \PassOptionsToClass{\CurrentOption}{scrartcl}
+}
+\ProcessKeyOptions
+
 \LoadClass[a4paper, captions=tableheading, parskip=half, usegeometry]{scrartcl}
 
 \RequirePackage[left=2.5cm, right=2cm, bottom=1.5cm, top=2.5cm]{geometry}
 
+\RequirePackage{iftex}
+
+\ifLuaTeX
 \RequirePackage{fontspec}
-\setsansfont{arial}
+\RequirePackage[math-style=ISO]{unicode-math}
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{TeX Gyre Cursor}
+\setmathfont{TeX Gyre Termes Math}
+\else
+\ifXeTeX
+\RequirePackage{fontspec}
+\RequirePackage[math-style=ISO]{unicode-math}
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{TeX Gyre Cursor}
+\setmathfont{TeX Gyre Termes Math}
+\else
+\RequirePackage[T1]{fontenc}
+\RequirePackage{tgtermes}
+\RequirePackage{tgheros}
+\RequirePackage{tgcursor}
+\fi
+\fi
+
 \renewcommand{\familydefault}{\sfdefault}
-
-\RequirePackage{xcolor}
-\RequirePackage[parindent=0em]{fontsize}
-
-\definecolor{dfgblue}{HTML}{00529E}
 
 \setkomafont{title}{\bfseries\normalsize}
 \setkomafont{subtitle}{\bfseries\normalsize}
@@ -30,82 +52,46 @@
 
 \subject{Beschreibung des Vorhabens - Projektanträge}
 
-\makeatletter
-
-\renewcommand*{\@maketitle}{%
-    \global\@topnum=\z@
-    \setparsizes{\z@}{\z@}{\z@\@plus 1fil}\par@updaterelative
-    \ifx\@titlehead\@empty \else
-    \begin{minipage}[t]{\textwidth}
-        \usekomafont{titlehead}{\@titlehead\par}%
-    \end{minipage}\par
+\renewcommand{\maketitle}{%
+    \def\and{\\}
+    {\usekomafont{subject}{\@subject \par}}
+    \vskip 1.5em
+    {\usekomafont{author}{\@author}}
+    \vskip 1.5em
+    {\usekomafont{title}{\@title \par}}
+    \ifx\@subtitle\@empty\else
+    \vskip .5em
+    {\usekomafont{subtitle}\@subtitle\par}
     \fi
-    \null
-    \vskip 2em%
-    \begin{minipage}{\textwidth}%
-        \ifx\@subject\@empty \else
-        {\usekomafont{subject}{\@subject \par}}%
-        \vskip 1.5em
-        \fi
-        {%
-            \usekomafont{author}{%
-%                \begin{tabular}[t]{|l|}
-                \@author
-%                \end{tabular}\par
-            }%
-        }%
-        \vskip 1.5em
-            {\usekomafont{title}{\@title \par}}%
-        \vskip .5em
-            {\ifx\@subtitle\@empty\else\usekomafont{subtitle}\@subtitle\par\fi}%
-        \vskip 1em
-        \hrule
-    \end{minipage}%
+    \vskip 1.5em
+    \hrule
     \par
-
-    \begin{figure}[b]
-        \begin{minipage}[b]{0.8\textwidth}
-            \bfseries\scriptsizerrr\raggedright
-            {\color{dfgblue} Deutsche Forschungsgemeinschaft}\\
-            Kennedyallee 40 ∙ 53175 Bonn ∙ Postanschrift: 53170 Bonn\\
-            Telefon: + 49 228 885-1 ∙ Telefax: + 49 228 885-2777 ∙ postmaster@dfg.de ∙ www.dfg.de
-        \end{minipage}
-        \begin{minipage}[b]{0.19\textwidth}
-            \raggedleft
-            \HUGErrr\bfseries\color{dfgblue} DFG
-        \end{minipage}
-    \end{figure}
+    \global\let\and\relax
 }
-
-\xpatchcmd{\maketitle}{%
-    \and{%
-\end{tabular}%
-\hskip 1em \@plus.17fil%
-\begin{tabular}[t]{c}%
-}}{\and{\\}}{}{\ddt}
-
-\makeatother
 
 \setkomafont{section}{\normalsize\bfseries}
 \setkomafont{subsection}{\normalsize\bfseries}
+\setkomafont{subsubsection}{\normalsize\bfseries}
+\setkomafont{minisec}{\normalsize\bfseries}
 
 \RequirePackage{scrlayer-scrpage}
 
-\setkomafont{pagehead}{\normalfont\scriptsizerrr}
+\setkomafont{pagehead}{\normalfont\scriptsize}
 
-\ihead*{DFG-Vordruck 53.01 – 03/22}
+\ihead*{DFG-Vordruck 53.01 – 03/25}
 \ohead*{Seite \pagemark{} von max. 17}
 \cfoot*{}
+\chead*{\ifx\@date\@empty\else\@date\fi}
 
 \newcommand{\partbreak}{%
-\newpage
-\setcounter{page}{1}
-\ohead*{Seite \pagemark{} von max. 8}
+    \newpage
+    \setcounter{page}{1}
+    \ohead*{Seite \pagemark{} von max. 8}
 }
 
 \setcounter{secnumdepth}{4}
 
 \RedeclareSectionCommand[
-  beforeskip=-3.25ex plus -1ex minus -.2ex,
-  afterskip=1.5ex plus .2ex,
+    beforeskip=-3.25ex plus -1ex minus -.2ex,
+    afterskip=1.5ex plus .2ex,
 ]{paragraph}
