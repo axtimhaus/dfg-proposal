@@ -1,4 +1,4 @@
-# LaTeX-Klasse und Vorlage für DFG Anträge im Normalverfahren (Vordruck 53.01, Stand 2022-03)
+# LaTeX-Klasse und Vorlage für DFG Anträge im Normalverfahren (Vordruck 53.01, Stand 2025-03)
 
 Dieses Repository stellt eine LaTeX-Klasse `dfg-proposal` bereit, welche den
 Vordruck 53.01 (RTF-Vorlage) zur Beantragung von Einzelprojekten (Sachbeihilfe)
