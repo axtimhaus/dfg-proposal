@@ -2,16 +2,18 @@
 
 Dieses Repository stellt eine LaTeX-Klasse `dfg-proposal` bereit, welche den
 Vordruck 53.01 (RTF-Vorlage) zur Beantragung von Einzelprojekten (Sachbeihilfe)
-der Deutschen Forschungsgemeinschaft (DFG) reproduziert. Die Datei `antrag.tex`
-ist eine Vorlage, welche bereits die obligatorischen Abschnitte des
-Antragstextes enthält und für eigene Zwecke angepasst werden kann. Die Vorlage
-wird regelmäßig aktualisiert, wenn sich die Anforderungen der DFG ändern. Es
-kann jedoch nicht garantiert werden, dass dies unmittelbar geschieht. Nutzer
-sind selbst dafür verantwortlich, die Konformität mit den aktuellen
-Anforderungen zu prüfen, der Autor übernimmt hierfür keine Verantwortung
-und/oder Haftung.
+der Deutschen Forschungsgemeinschaft (DFG) reproduziert. Die Datei
+[`antrag.tex`](antrag.tex) ist eine Vorlage, welche bereits die obligatorischen
+Abschnitte des Antragstextes enthält und für eigene Zwecke angepasst werden
+kann. Eine englische Version äquivalenten Inhalts ist in
+[`proposal.tex`](proposal.tex) zu finden. Die Vorlage wird regelmäßig
+aktualisiert, wenn sich die Anforderungen der DFG ändern. Es kann jedoch nicht
+garantiert werden, dass dies unmittelbar geschieht. Nutzer sind selbst dafür
+verantwortlich, die Konformität mit den aktuellen Anforderungen zu prüfen, der
+Autor übernimmt hierfür keine Verantwortung und/oder Haftung.
 
-Ein Beispiel des Ergebnisses in [`antrag.pdf`](antrag.pdf) zu finden.
+Beispiele des Ergebnisses in [`antrag.pdf`](antrag.pdf) (deutsche Version) und
+[`proposal.pdf`](proposal.pdf) zu finden.
 
 Der Inhalt dieses Repositories wird unter der MIT Lizenz zur Verfügung gestellt,
 unbeschadet aller Rechte der DFG an der originalen Vorlage, welche
@@ -58,6 +60,12 @@ verwenden, da dieser keiner Gliederungsebene direkt zugeordnet ist.
 Die DFG teilt den Antrag in zwei Teile mit den Abschnitten 1-3 und 4-5, dies
 geschieht hier durch den Befehl `\partbreak`. Damit wird ein Seitenumbruch
 erzeugt, die Kopfzeile verändert und der Seitenzähler zurückgesetzt.
+
+## Sprache
+
+Die Klasse reagiert selbständig auf die Spracheinstellung mit `babel` (`ngerman`
+oder `english`). Dabei werden die Kopfzeilen sowie die Titelei in entsprechender
+Sprache ausgegeben.
 
 ## Sonstiges
 

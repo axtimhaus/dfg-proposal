@@ -3,7 +3,7 @@
 %! Date = 28.07.22
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dfg-proposal}[2025-07-21 A class for writing project porposals to the DFG]
+\ProvidesClass{dfg-proposal}[2025-07-21 A class for writing project proposals to the DFG]
 
 \DeclareKeys{}
 \DeclareUnknownKeyHandler{%
@@ -50,7 +50,9 @@
 
 \RequirePackage{xpatch}
 
-\subject{Beschreibung des Vorhabens - Projektanträge}
+\providecaptionname{english}{\dfgproposal@subject}{Project Description - Project Proposals}
+\providecaptionname{ngerman}{\dfgproposal@subject}{Beschreibung des Vorhabens - Projektanträge}
+\subject{\dfgproposal@subject}
 
 \renewcommand{\maketitle}{%
     \def\and{\\}
@@ -78,15 +80,24 @@
 
 \setkomafont{pagehead}{\normalfont\scriptsize}
 
-\ihead*{DFG-Vordruck 53.01 – 03/25}
-\ohead*{Seite \pagemark{} von max. 17}
+\providecaptionname{english}{\dfgproposal@caption@form}{DFG Form}
+\providecaptionname{ngerman}{\dfgproposal@caption@form}{DFG-Vordruck}
+
+\providecaptionname{english}{\dfgproposal@caption@page}{Page}
+\providecaptionname{ngerman}{\dfgproposal@caption@page}{Seite}
+
+\providecaptionname{english}{\dfgproposal@caption@ofmax}{of max.}
+\providecaptionname{ngerman}{\dfgproposal@caption@ofmax}{von max.}
+
+\ihead*{\dfgproposal@caption@form~53.01 -- 03/25}
+\ohead*{\dfgproposal@caption@page~\pagemark{}~\dfgproposal@caption@ofmax~17}
 \cfoot*{}
 \chead*{\ifx\@date\@empty\else\@date\fi}
 
 \newcommand{\partbreak}{%
     \newpage
     \setcounter{page}{1}
-    \ohead*{Seite \pagemark{} von max. 8}
+    \ohead*{\dfgproposal@caption@page~\pagemark{}~\dfgproposal@caption@ofmax~8}
 }
 
 \setcounter{secnumdepth}{4}
