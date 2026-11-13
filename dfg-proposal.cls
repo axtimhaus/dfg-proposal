@@ -67,6 +67,7 @@
     \fi
     \vskip 1.5em
     \hrule
+    \vskip 1.5em
     \par
     \global\let\and\relax
 }
@@ -89,7 +90,7 @@
 \providecaptionname{english}{\dfgproposal@caption@ofmax}{of max.}
 \providecaptionname{ngerman}{\dfgproposal@caption@ofmax}{von max.}
 
-\ihead*{\dfgproposal@caption@form~53.01 -- 03/25}
+\ihead*{\dfgproposal@caption@form~53.01 -- 09/26}
 \ohead*{\dfgproposal@caption@page~\pagemark{}~\dfgproposal@caption@ofmax~17}
 \cfoot*{}
 \chead*{\ifx\@date\@empty\else\@date\fi}
